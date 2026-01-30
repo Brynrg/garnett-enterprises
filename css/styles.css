@@ -1,0 +1,531 @@
+/* Garnett Enterprises - Professional Business Acquisition Site */
+
+:root {
+  --color-primary: #1a1a1a;
+  --color-secondary: #2563eb;
+  --color-accent: #0066a1;
+  --color-bg-light: #ffffff;
+  --color-bg-gray: #e8e8e8;
+  --color-bg-blue: #8eb4d1;
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+  --max-width: 1400px;
+  --section-padding: 80px 5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  line-height: 1.6;
+  background: var(--color-bg-light);
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-style: italic;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+p {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Header / Navigation */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 15px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.header.scrolled {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.logo svg {
+  width: 48px;
+  height: 48px;
+}
+
+.nav {
+  display: flex;
+  gap: 40px;
+}
+
+.nav a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  position: relative;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 80px;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  color: var(--color-primary);
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+/* Section Styles */
+.section {
+  padding: var(--section-padding);
+}
+
+.section-white {
+  background: var(--color-bg-light);
+}
+
+.section-gray {
+  background: var(--color-bg-gray);
+}
+
+.section-blue {
+  background: var(--color-bg-blue);
+  position: relative;
+}
+
+.section-blue::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: var(--color-bg-gray);
+  clip-path: polygon(0 0, 100% 50%, 100% 100%, 0 100%);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Two Column Layout */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.two-col h2 {
+  margin-bottom: 0;
+}
+
+.two-col p {
+  color: var(--color-text);
+}
+
+/* Intro Section */
+.intro-section {
+  padding: 100px 5%;
+}
+
+.intro-section h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  margin-bottom: 0;
+}
+
+/* Philosophy Section */
+.philosophy-section h2 {
+  color: var(--color-accent);
+  margin-bottom: 30px;
+}
+
+.philosophy-section p {
+  margin-bottom: 1.5rem;
+}
+
+/* CTA Button */
+.btn {
+  display: inline-block;
+  padding: 18px 50px;
+  background: var(--color-primary);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+.btn-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Contact Section */
+.contact-section {
+  padding-top: 100px;
+  position: relative;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.contact-info h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 30px;
+}
+
+.contact-info p {
+  margin-bottom: 30px;
+}
+
+.contact-details {
+  margin-bottom: 30px;
+}
+
+.contact-person {
+  margin-bottom: 25px;
+}
+
+.contact-person p {
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+}
+
+.tagline {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-top: 30px;
+}
+
+/* Contact Form */
+.contact-form {
+  background: transparent;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-group label span {
+  color: var(--color-text-light);
+  font-weight: 400;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: white;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.btn-submit {
+  margin-top: 10px;
+}
+
+/* About Page Styles */
+.page-header {
+  padding: 140px 5% 60px;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-style: normal;
+  margin-bottom: 30px;
+}
+
+.page-header p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+}
+
+/* Team Section */
+.team-section {
+  padding: 60px 5% 100px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-member {
+  text-align: center;
+}
+
+.team-photo {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+  margin-bottom: 30px;
+  filter: grayscale(0%);
+  transition: filter 0.3s ease;
+}
+
+.team-member:hover .team-photo {
+  filter: grayscale(0%);
+}
+
+.team-member h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.team-member p {
+  text-align: left;
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+/* Experience Section */
+.experience-section {
+  position: relative;
+}
+
+.experience-section::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: white;
+  clip-path: polygon(0 0, 100% 50%, 100% 100%, 0 100%);
+}
+
+.experience-section h2 {
+  color: var(--color-accent);
+  margin-bottom: 30px;
+}
+
+/* Footer */
+.footer {
+  padding: 30px 5%;
+  text-align: center;
+  background: var(--color-bg-light);
+  border-top: 1px solid #e0e0e0;
+}
+
+.footer p {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 968px) {
+  .two-col,
+  .contact-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .section-blue::before,
+  .experience-section::before {
+    display: none;
+  }
+
+  .hero {
+    min-height: 50vh;
+  }
+
+  .nav {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding: 12px 4%;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .logo svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .nav a {
+    font-size: 0.85rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .section {
+    padding: 60px 4%;
+  }
+
+  .btn {
+    padding: 15px 35px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
